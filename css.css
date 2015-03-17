@@ -1,0 +1,16 @@
+*{
+    margin: 0 auto;
+}
+
+#slåtärna{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+#statistik{
+    height: 200px;
+    width: 200px;
+    border: 2px black solid;
+}
