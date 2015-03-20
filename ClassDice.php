@@ -10,6 +10,7 @@ class Dice {
     }
 
     public function kasta($antal = 1) {
+        
         $kast = array();
 
         for ($i = 0; $i < $antal; $i++) {

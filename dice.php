@@ -1,6 +1,6 @@
 <?php
 
-include 'index.html';
+//include 'index.html';
 require 'ClassDice.php';
 //
 //$person = new ClassDice();
@@ -11,20 +11,32 @@ require 'ClassDice.php';
 //echo $person->sentence();
 
 
-$dice = new Dice();
+$dice = new Dice($_GET["antalSidor"]);
+
+//$kast = $dice->kasta();
+
+function printDice($varjeKast) {
+    $kastLista = "<ol>";
+    foreach ($varjeKast as $kast) {
+        $kastLista .= "<li>" . $kast . "</li>";
+    }
+    return $kastLista;
+}
 
 if (isset($_GET["throwDice"])) {
 
-
-    var_dump($_GET["throwDice"]);
-    echo "<br>";
-    var_dump($_GET["antalDice"]);
-    echo "<br>";
-
     $antal = $_GET["antalDice"];
-    echo $antal;
-    
-    echo "<br>";
+    $sidor = $_GET["antalSidor"];
 
-     var_dump($dice->kasta($antal));
+    $kast = $dice->kasta($antal, $sidor);
+
+
+    echo "Antal kast: " . $kast["antal"];
+    echo "<br>";
+    echo "Antal sidor: " . $kast["sidor"];
+    echo "<br>";
+    echo printDice($kast["tarning"]);
+    echo "<br>";
+    echo "Summa: " . $kast["summa"];
+    echo "<br>";
 }
